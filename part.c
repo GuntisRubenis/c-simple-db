@@ -168,12 +168,12 @@ void update_part(struct part *list){
 }
 
 void print_parts(struct part *list){
-    printf("Number\tName\tQuatity\n");
+    printf("%-10s %-20s %-10s\n", "Number", "Name", "Quantity");
     while (list != NULL){
-        printf("%d\t%s\t%d\n", list->number, list->name, list->quantity);
+        printf("%-10d %-20s %-10d\n", list->number, list->name, list->quantity);
         list = list->next;
    }
-   flush_buffer();
+   
 }
 
 struct part *find_part(struct part *list, int number){

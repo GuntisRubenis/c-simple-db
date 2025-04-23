@@ -12,7 +12,7 @@ char opp;
 for (;;){
 
     printf("Enter operation (i,u,s,d,p,q): ");
-    scanf("%c", &opp);
+    scanf(" %c", &opp);
 
     switch (opp){
 
@@ -53,6 +53,11 @@ for (;;){
             printf("\n");
             break;
         case 'q':
+            while (inventory != NULL) {
+                struct part *temp = inventory;
+                inventory = inventory->next;
+                free(temp);
+            }
             return 0;
         default:
             printf("Invalid operation %c\n", opp);
@@ -60,6 +65,6 @@ for (;;){
 
     }
 
-}
+   }
 
 }
