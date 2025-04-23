@@ -17,10 +17,40 @@ for (;;){
     switch (opp){
 
         case 'i':
-            add_part(&inventory);    
+            add_part(&inventory);
+            printf("\n");
             break;
         case 'p':
             print_parts(inventory);
+            printf("\n");
+            break;
+        case 'u':
+            update_part(inventory);
+            printf("\n");
+            break;
+        case 'd':
+            delete_part(&inventory);
+            printf("\n");
+            break;
+        case 's':
+            int number;
+
+            printf("Enter part number: ");
+            scanf("%d", &number);
+            flush_buffer();
+            struct part *part;
+            part = find_part(inventory, number);
+
+            if(part != NULL){
+                printf("Number\tName\tQuantity\n");
+                printf("%d\t%s\t%d\n", part->number, part->name, part->quantity);
+            }
+            else{
+                printf("Part %d not found\n", number);
+            }
+            
+            
+            printf("\n");
             break;
         case 'q':
             return 0;
